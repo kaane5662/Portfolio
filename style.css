@@ -1,0 +1,361 @@
+body {
+    font-family: 'Signika Negative', sans-serif;
+    background-color: #F4F4F8;
+    color: #333333;
+    
+}
+
+
+.navbar {
+    font-size: 20px;
+    
+}
+
+.navbar-spacing {
+    float: left;
+    margin-right: 5%;
+    font-size: 20px;
+    
+    
+}
+
+.navbar-spacing:hover{
+    color: #DD0156 !important;
+    cursor: pointer;
+    transition: .5s;
+    font-weight: bold;
+    border-style: solid;
+    border-color: #DD0156;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    
+
+}
+
+
+
+.center-text {
+    text-align: center;
+    width: 100%;
+}
+
+.fa-solid {
+
+    color: #DD0156;
+}
+
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 800px 1fr;
+    grid-template-rows: auto 100px;
+    grid-template-areas: "thing view hi";
+    align-items: center;
+    
+    
+    
+
+}
+
+
+.box-1{
+    
+}
+
+.box-2 {
+   
+    
+    grid-area: view;
+    margin-left: 30%;
+   
+
+   
+    
+    
+    
+    
+}
+
+.box-3 {
+    background-color: ;
+    
+}
+
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    grid-template-rows: 100px 200px;
+    grid-template-areas: 'desc picture';
+    margin-top: -100px;
+
+
+
+}
+
+
+.grid-3 {
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 100px 100px;
+  
+
+
+
+}
+
+.box-4 {
+    background-color: ;
+    grid-area: desc;
+   
+}
+
+.box-5 {
+    grid-area: picture;
+    background-color: ;
+}
+.box-6 {
+    margin-left: 15%;
+
+    
+    text-align: center;
+}
+.skill-title {
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+.intro {
+    letter-spacing: -2px;
+}
+.justify-start{
+    margin-left: 5%;
+}
+a {
+    text-decoration: none !important;
+    color: #333333 !important;
+
+}
+
+
+
+.project-overview {
+    display: grid;
+    grid-template-areas: 'desc2';
+    grid-template-columns: 0.1fr;
+    grid-template-rows: 1fr 1fr;
+    margin-left: 5%;
+    margin-right: 5%;
+    
+    margin-top: -10%;
+    
+}
+
+.box-7 {
+    grid-area: desc2;
+  
+    
+}
+.fa-caret-down {
+    float: right;
+    
+    
+}
+
+.project-overview-grids {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) ;
+    
+    grid-template-rows: auto 200px;
+    
+    grid-row-gap: 50px;
+    grid-column-gap: 25px;
+   
+    margin-left: 5%;
+    margin-right: 5%;
+    
+    
+    
+}
+
+
+
+.project-overview-grids > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    margin-left: 5%;
+    padding: 0px 0;
+    font-size: 30px;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,.1);
+  }
+
+
+  .project-overview-grids > div:hover {
+
+
+    cursor: pointer;
+    box-shadow: 10px 10px 10px rgba(0,0,0,.25);
+    transition: 1s;
+    
+  }
+
+
+  .red-text {
+    color: #DD0156;
+    font-weight: bold;
+
+  }
+
+
+  /* bodies */
+
+
+  .title-grid {
+    display: grid;
+    grid-template-areas: 'title';
+    margin-left: 30%;
+    margin-right: 30%;
+    grid-template-rows: auto 150px;
+    
+
+  }
+
+  .title-grid-text {
+    grid-area: title;
+
+  }
+
+  .format-grid {
+    display: grid;
+    grid-template-areas: 'img img' 'head head' 'desc1 desc2' ;
+ 
+    margin-left: 15%;
+    margin-right: 15%;
+
+}
+
+.format-grid-img {
+    grid-area: img;
+    margin-left: -10% !important;
+    margin-right: -10% !important;
+   
+    margin-bottom: -120px;
+    overflow: hidden;
+   
+    
+
+    
+}
+
+.format-grid-desc1 {
+    grid-area: desc1;
+    padding: 10px;
+    
+}
+
+.first {
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,.1);
+}
+
+.format-grid-desc2 {
+    grid-area: desc2;
+    padding: 10px;
+}
+
+.format-grid-head {
+    grid-area: head;
+   
+}
+
+.heading {
+    font-weight: bold;
+    color: #DD0156
+}
+
+.tool-desc {
+    text-align: left;
+   
+}
+
+.tool-pic {
+    text-align: right;
+    float: right;
+    margin-top: -10%;
+    
+
+
+    
+}
+
+
+
+
+
+.fact-image {
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    
+
+
+}
+
+
+.fact-details {
+    float: right !important;
+    width: 50%
+    
+}
+
+/* projects description footer */
+
+.projects-description-footer-grid {
+    display: grid;
+    grid-template-rows: auto auto;
+    
+    
+    grid-template-areas: 'tool1 tool2 tool3 tool4';
+
+    background-color: white !important;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;;
+    box-shadow: 5px 5px 5px 5px rgba(0,0,0,.1);
+    border-radius: 10px;
+
+
+}
+
+.projects-description-footer-grid > div {
+    margin-left: 20%;
+    margin-right: 20%;
+ 
+}
+
+
+
+.projects-description-footer-tool1 {
+    grid-area: tool1
+}
+.projects-description-footer-tool2 {
+    grid-area: tool2
+}
+
+.projects-description-footer-tool3 {
+    grid-area: tool3
+}
+
+.projects-description-footer-tool4 {
+    grid-area: tool4
+}
+
+
+.desc {
+    font-weight: bold;
+}
+
