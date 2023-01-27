@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap" rel="stylesheet">
+       
+        <style>
+            /* CSS */
+            
+
+
+            body {
+                background-color: #F4F4F8;
+                color: #333333;
+                font-family: 'Signika Negative', sans-serif;
+
+            }
+            .credits-grid {
+                display: grid;
+                grid-template-areas: 'client designer category';
+                margin-left: 20%;
+                margin-right: 20%;
+                padding: 5%;
+                
+
+                
+            }
+
+            .credits-grid-client {
+                grid-area: client;
+            }
+
+            .credits-grid-designer{
+                grid-area: designer;
+            }
+
+            .credits-grid-category{
+                grid-area: category;
+            }
+
+
+            .heading-titles {
+                font-weight: bold;
+                color: #DD0156;
+                text-align: center;
+            }
+
+            h5 {
+                text-align: center !important;
+            }
+
+            h1 {
+                font-size: 70px;
+                font-weight: bold;
+                color: #DD0156;
+
+
+            }
+
+            .titleAndDesc {
+                margin-left: 20%;
+                margin-right: 20%;
+                
+            }
+
+            .first-image {
+                border-radius: 10px;
+                margin-left: -5%;
+                margin-right: -5%;
+                object-fit: cover;
+                display: block;
+                width: 110%;
+                box-shadow: 5px 5px 5px rgba(0,0,0,.1);
+
+                
+
+
+            }
+
+            .text-description {
+                font-size: 25px;
+
+            }
+
+
+
+        </style>
+        
+        <title>Title</title>
+    </head>
+    <body>
+        <!-- HTML -->
+
+        
+        <div class = 'credits-grid'>
+            <div class = 'credits-grid-client'>
+
+                <h3 class = 'heading-titles'>Name</h3>
+                <h5>Glacier Environment</h5>
+
+            </div>
+            
+            <div class = 'credits-grid-designer'>
+                <h3 class = 'heading-titles'>Type</h3>
+                <h5>Procedural Modeling</h5>
+            </div>
+
+            <div class = 'credits-grid-category'>
+                <h3 class = 'heading-titles'>Tools</h3>
+                <h5>Blender/Geometry Nodes</h5>
+            </div>
+            
+
+        
+        </div>
+        
+        <!-- intro -->
+        <!-- <img class = 'first-image'src = 'https://media.sproutsocial.com/uploads/2019/09/instagram-photo-guide.jpg'> -->
+            <br>
+        <div class = 'titleAndDesc'>
+            <img class = 'first-image'src = 'GlacierPicture/Ice.png'>
+            <br>
+            <h1>Introduction</h1>
+            <br>
+            
+            <p class = 'text-description'>For around 2 months now, I have been using a 3D modeling software called Blender. I have learned all the keyboard shortcuts and made different types of geometry using Blender, such as apartments, factories, interiors, aircraft, and variations of terrain structures. However, I wondered how I do this all procedurally for repeated geometry such as apartments, and randomly displaced geometry, such as terrain. That's when I discovered the top-rightmost tab I had never used called geometry nodes.</p>
+            <br>
+            
+            <br>
+
+        </div>
+
+        <div class = 'titleAndDesc'>
+            <h1>The Goal</h1>
+            <br>
+            
+            <p class = 'text-description'>In order to understand the displacement of geometry nodes, I tried to make a glacier setting. The glaciers will be smooth on top and have a natural transformation with randomized heights and cliff-like edges. The scene will also contain an ocean filled with broken ice sheets.
+            </p>
+            <br>
+            <br>
+
+        </div>
+
+        <div class = 'titleAndDesc'>
+            <h1>Setting up the Terrain</h1>
+            <br>
+            <img class = 'first-image'src = 'GlacierPicture/GridPlane.png'>
+            <br>
+            
+            
+            <p class = 'text-description'>In order to make our mesh, we first need to make our grid. By default the grid is 2m by 2m with only 4 vertices, meaning it only has the geometry of a 2d plane. Therefore, we need to increase the geometry of the plane by adding a sub-division surface modifier. Finally, we add a set position node, so we can later do what we want for the current geometry.
+
+            </p>
+            <br>
+            <br>
+
+        </div>
+
+        <div class = 'titleAndDesc'>
+            
+            
+            <h1>Displacing the Terrain</h1>
+            <br>
+            <img class = 'first-image'src = 'GlacierPicture/TerrainDisplacement.png'>
+            <br>
+            
+            <p class = 'text-description'>With our set position node from the previous node setup, we can add an offset to add some height to the geometry. However, all faces do not need to be pulled up, so first, we must randomly select some faces to extrude. This can be done using the Noise Texture. To put it simply, the noise texture is a texture that can be used to procedurally generate values over a fixed time, with 1 being true and 0 being false. On the other hand, lots of noise results in a bunch of randomly generated values, so to compromise, we decrease the scale of the noise texture and add a Musgrave Texture to smoothen out the vertices. Next, a color ramp is placed on a floating curve, to control the intensity of the random values. I made somewhat of a concave-up curve in order to intensify the sharpness of the edges of the noise texture and increase the depth of the noise texture. Now all that’s needed is using the values so the faces get some height.
+            </p>
+            <br>
+            
+            
+            <p class = 'text-description'>Blender is in a 3D space, meaning that there is an X, Y, and Z dimension. In a blender, X, and Y are considered the “plane” axis, whereas Z is considered the height of the up axis. Therefore, in order to add height to the faces, we need to add on to the position Z axis. Each face has a position, which is stored as a 3D Vector, so a Combine XYZ node is used to add the Z value to the position of the face. By default, noise textures provide a normalized vector, meaning that the Vector that is added has a maximum magnitude of one, so we need to multiply the final position vector by a certain number; I chose 30 because it seemed the most natural. Finally, a Map Range node is used to smoothen the top of the faces by subtracting the distance of the edges of the geometry to add a flat-top effect.
+            </p>
+
+        </div>
+
+
+        <div class = 'titleAndDesc'>
+            <h1>Water</h1>
+            <br>
+            <img class = 'first-image'src = 'GlacierPicture/WaterPlane.png'>
+            <br>
+            
+            <p class = 'text-description'>Water is honestly one of the most simple things to implement. All you have to do is add another plane with the grid and just transform it up the Z axis to make the water look above the terrain.
+
+            </p>
+            <br>
+            <br>
+
+        </div>
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://kit.fontawesome.com/305e1eb076.js" crossorigin="anonymous"></script>
+        <script>
+            // JS
+            
+            
+        </script>
+    </body>
+</html>
